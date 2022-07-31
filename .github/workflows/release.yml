@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  prepare:
+  build:
     name: Prepare
     runs-on: ubuntu-latest
     steps:
@@ -18,9 +18,8 @@ jobs:
         with:
           node-version: 16
 
-      - uses: pnpm/action-setup@v2.0.1
-        name: Install pnpm
-        id: pnpm-install
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
         with:
           version: 7
           run_install: false
@@ -28,11 +27,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-  build:
-    name: Build
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
       # - name: Run tests
       #   run: npm test
 
