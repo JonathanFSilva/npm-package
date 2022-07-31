@@ -1,8 +1,3 @@
 {
-  "extends": "@parcel/config-default",
-  "compressors": {
-    "*.{js,map}": [
-      "@parcel/compressor-gzip"
-    ]
-  }
+  "extends": "@parcel/config-default"
 }
