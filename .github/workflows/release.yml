@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  build:
-    name: Prepare
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,11 +33,6 @@ jobs:
       - name: Build
         run: pnpm build
 
-  release:
-    name: Release
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
